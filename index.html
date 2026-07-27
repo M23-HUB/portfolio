@@ -146,7 +146,7 @@
   							    </footer>
 							</section> -->
 						
-						<!-- Third Section -->
+						<!-- Fourth Section -->
 							<section id="fourth" class="main special">
 								<header class="major">
 									<h2>Tech Stock Market Project</h2>
@@ -171,7 +171,7 @@
  								</footer>
 							</section> 
 						
-						<!-- Fourth Section -->
+						<!-- Fifth Section -->
 							<section id="fifth" class="main special">
 								<header class="major">
 									<h2>World Internet Access Data Project</h2>
@@ -184,6 +184,81 @@
 									<style type="text/css">
           				   iframe { margin-bottom: 15px; }
 									</style>
+								</ul>
+								<footer class="major"> 
+									<ul class="actions special">
+										<li><a href="https://github.com/M23-HUB/World-Internet-Access-Data-Project.git" class="button" target="_blank">Full Report</a></li>
+									</ul>
+ 								</footer>
+							</section> 
+						
+							<!-- Sixth Section -->
+							<section id="sixth" class="main special">
+								<header class="major">
+									<h2>Pong Game</h2>
+									<!-- <p></p>		 -->
+								</header>
+								<ul class="features">
+									<script type="mpy" config="./pyscript.jason">
+										from turtle import Screen
+										from items import Paddle
+										from ball import Ball
+										from scoreboard import Scoreboard
+										import time
+
+										screen = Screen()
+										screen.bgcolor("black")
+										screen.setup(width=800, height=600)
+										screen.title("Pong")
+										screen.tracer(0)
+
+										# Players
+										player_1 = Paddle((-350,0))
+										player_2 = Paddle((350,0))
+										ball = Ball()
+										score = Scoreboard()
+
+										# Control
+										screen.listen()
+
+										# Player 1 control
+										screen.onkey(player_1.go_up, "w")
+										screen.onkey(player_1.go_down, "s")
+
+										# Player 2 control
+										screen.onkey(player_2.go_up, "Up")
+										screen.onkey(player_2.go_down, "Down")
+
+										# Game Play
+										game_is_on = True
+										while game_is_on:
+											time.sleep(ball.ball_speed())
+											screen.update()
+											ball.move()
+											player_1
+											player_2
+											
+										# Bounce upon collision with wall
+											if ball.ycor() > 280 or ball.ycor() < -280:
+												ball.bounce()
+												
+										# Bounce upon collision with paddle   
+											if ball.distance(player_1) < 50 and ball.xcor() < -320 or ball.distance(player_2) < 50 and ball.xcor() > 320:
+												ball.collision()
+												
+										# Ball out of bounce
+											# Player 1 miss
+											if ball.xcor < -290:
+												ball.miss()
+												score.player2_points()
+												
+											# Player 2 miss
+											if ball.xcor() > 290:
+												ball.miss()
+												score.player1_points()
+											
+										screen.exitonclick()
+									</script>
 								</ul>
 								<footer class="major"> 
 									<ul class="actions special">
